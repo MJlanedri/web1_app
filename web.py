@@ -1,6 +1,8 @@
 import streamlit as st
 import functions
 
+st.set_page_config(layout="wide")
+
 todos = functions.get_methods()
 def add_todo():
     todo = st.session_state["new_todo"] + "\n"
@@ -8,8 +10,7 @@ def add_todo():
     todos.append(todo)
     functions.write_todos(todos)
     
-
-
+    
 st.title("My Todo App")
 st.subheader("This is my todo Apps")
 st.write("This app is to increase your productivity.")
@@ -26,6 +27,4 @@ for index, todo in enumerate(todos):
 st.text_input(label="Enter a todo:", placeholder="Add new todo...",
               on_change=add_todo, key='new_todo')
 
-
-
-st.session_state
+# var = st.session_state
